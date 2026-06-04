@@ -7,14 +7,14 @@ Video::Video(std::string id,std::string nombre, std::string genero, int duracion
     this->genero = genero;
     this->duracion = duracion;
 }
-void Video::setCalificacion(int calificacion){
+void Video::setCalificacion(float calificacion){
         this->calificacion = calificacion;
         std::cout<<"Calificacion asignada\n";
 }
-float  getCalificacion(){
+float Video::getCalificacion(){
     return calificacion;
 }
-string getGenero(){
+std::string Video::getGenero(){
     return genero;
 }
 

@@ -3,5 +3,5 @@
 
 void Episodio::mostrarDatos() {
     std::cout<<"Id: "<<id<<", Nombre: "<<nombre<<", Genero: "<<genero<<", Duracion: "
-    <<duracion<<", Calif.prom: "<<calificacion<<", Titulo: "<<serie<<", Temporada: "<<temporada<<"\n";
+    <<duracion<<", Calif.prom: "<<calificacion<<", Titulo: "<<titulo<<", Temporada: "<<temporada<<"\n";
 }
