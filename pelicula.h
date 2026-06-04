@@ -4,4 +4,4 @@
 class Pelicula : public Video{
 public:
     void mostrarDatos() override;
-} 
+};
