@@ -4,9 +4,18 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+#define SERIES_FILE "series.csv"
 
 
 int main(){
+    Video **catalogo = nullptr;
+    catalogoSize = 0;
+    dataSize = countDataLinesInCSV(PCPARTS_FILE);
+    if (dataSizze == -1){
+        
+    }
+
+
 
     int opcion;
     do{
