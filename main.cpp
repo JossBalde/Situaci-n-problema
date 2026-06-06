@@ -11,9 +11,7 @@ int main(){
     Video **catalogo = nullptr;
     catalogoSize = 0;
     dataSize = countDataLinesInCSV(PCPARTS_FILE);
-    if (dataSizze == -1){
-        
-    }
+    if (dataSizze == -1){}
 
 
 
