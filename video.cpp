@@ -26,6 +26,9 @@ float Video::getCalificacion(){
 std::string Video::getGenero(){
     return genero;
 }
+std::string Video::getId(){
+    return id;
+}
 int countDataLinesInCSV(std::string fileName) {
     std::ifstream    file(fileName);
     int         lineCount = 0;

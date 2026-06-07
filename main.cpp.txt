@@ -87,14 +87,13 @@ int main() {
                 break;
             case 3:
                 int opcion2;
-                std::cout << "ï¿½Como deseas filtrar? Introduce 1 para filtrar por calificacion, o introduce 2 para filtrar por genero: ";
+                std::cout << "¿Como deseas filtrar? Introduce 1 para filtrar por calificacion, o introduce 2 para filtrar por genero: ";
                 std::cin >> opcion2;
                 while (opcion2 != 1 && opcion2 != 2) {
                     std::cout << "Opcion invalida, por favor introduce 1 para calificacion o 2 para genero: ";
                     std::cin >> opcion2;
                 }
                 if (opcion2 == 1) {
-                    int videosEncontrados = 0;
                     int calificacionFiltro;
                     std::cout << "Dame la calificacion por la que quieres filtrar: ";
                     std::cin >> calificacionFiltro;
@@ -105,11 +104,7 @@ int main() {
                     for (int i = 0; i < catalogoSize; i++) {
                         if (catalogo[i]->getCalificacion() == calificacionFiltro) {
                             catalogo[i]->mostrarDatos();
-                            videosEncontrados++;
                         }
-                    }
-                    if (videosEncontrados == 0) {
-                        std::cout << "No se encontro ningun titulo con calificacion " << calificacionFiltro << ".\n";
                     }
                 }
                 else {
@@ -124,7 +119,7 @@ int main() {
                         }
                     }
                     if (videosEncontrados == 0) {
-                        std::cout << "No se encontro ningun titulo de genero " << generoFiltro << "\n";
+                        std::cout << "No se encontro ningun titulo de ese genero \n";
                     }
                 }
                 break;
@@ -148,9 +143,8 @@ int main() {
                 }
                 break;
             }
-            case 5: {
+            case 5:
                 int calificacion;
-                int pelisEncontradas = 0;
                 std::cout << "Dame la calificacion por la que quieres filtrar las peliculas: ";
                 std::cin >> calificacion;
                 while (calificacion < 0 || calificacion > 5) {
@@ -160,14 +154,9 @@ int main() {
                 for (int i = 0; i < peliculasSize; i++) {
                     if (peliculas[i].getCalificacion() == calificacion) {
                         peliculas[i].mostrarDatos();
-                        pelisEncontradas++;
                     }
                 }
-                if (pelisEncontradas == 0) {
-                    std::cout << "No se encontro ninguna pelicula con calificacion " << calificacion << ".\n";
-                }
                 break;
-            }
             case 6: {
                 std::string idCalificar;
                 float calificacionNueva;
@@ -183,7 +172,7 @@ int main() {
                     }
                 }
                 if (videoEncontrado == 0) {
-                    std::cout << "No existe el video con ID " << idCalificar << "\n";
+                    std::cout << "No existe el video con ID " << idCalificar;
                 }
                 break;
             }
@@ -196,10 +185,7 @@ int main() {
         
 
     delete[] peliculas;
-    peliculas = nullptr;
     delete[] series;
-    series = nullptr;
     delete[] catalogo;
-    catalogo = nullptr;
     return 0;
 }

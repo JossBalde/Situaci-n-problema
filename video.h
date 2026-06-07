@@ -17,6 +17,7 @@ public:
     virtual void mostrarDatos() = 0;
     float getCalificacion();
     std::string getGenero();
+    std::string getId();
     virtual ~Video() {
     }
 };

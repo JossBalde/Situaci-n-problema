@@ -11,5 +11,6 @@ public:
     void mostrarDatos() override;
     void setTemporada(int temporada);
     void setTitulo(std::string titulo);
+    std::string getNombre();
 };
 bool loadSerieFromCSV(std::string fileName, Episodio* partArray, unsigned int arraySize);
