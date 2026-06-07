@@ -1,6 +1,6 @@
 #include "video.h"
 #pragma once
-#define PELICULA_ATRIBUTE_SIZE 5
+#define PELICULA_ATRIBUTE_SIZE 4
 
 class Pelicula : public Video{
 public:

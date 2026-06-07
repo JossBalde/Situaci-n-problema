@@ -13,6 +13,8 @@ int main(){
     Episodio *series = nullptr;
     int seriesSize = 0;
     int peliculasSize = 0;
+    int catalogoSize = 0;
+    Video **catalogo = nullptr;
 
     seriesSize = countDataLinesInCSV(SERIES_FILE);
  	if(seriesSize == -1) {
@@ -44,6 +46,24 @@ int main(){
 		delete [] peliculas;
 		return 0;
 	}
+    catalogoSize = peliculasSize + seriesSize;
+    
+    catalogo = new(nothrow) Video* [catalogoSize];
+    if(catalogo == nullptr) {
+		cerr << "No hubo memoria para el arreglo creado con datos de " << SERIES_FILE <<" y "<< PELICULAS_FILE<< "\n";
+		return 0;
+	}
+    for(int i = 0; i < catalogoSize; i++)
+        catalogo[i] = nullptr;
+    for(int i = 0; i < catalogoSize; i++){
+        if(i<peliculasSize)
+            catalogo[i] = &peliculas[i];
+        else
+            catalogo[i] = &series[i-peliculasSize];
+    }
+
+    for(int i = 0; i<catalogoSize; i++)
+        catalogo[i]->mostrarDatos();
 
 /*  int opcion;
     do{
@@ -60,5 +80,8 @@ int main(){
     
     }while()
 */
+    delete[] peliculas;
+    delete[] series;
+    delete[] catalogo;
     return 0;
 }

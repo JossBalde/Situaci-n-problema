@@ -1,6 +1,6 @@
 #include "video.h"
 #pragma once
-#define EPISODIO_ATRIBUTE_SIZE 7
+#define EPISODIO_ATRIBUTE_SIZE 6
 
 class Episodio : public Video{
 private:
