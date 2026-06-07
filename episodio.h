@@ -1,10 +1,15 @@
 #include "video.h"
 #pragma once
+#define EPISODIO_ATRIBUTE_SIZE 7
 
 class Episodio : public Video{
 private:
     int temporada;
     std::string titulo;
 public:
+    Episodio() {}
     void mostrarDatos() override;
+    void setTemporada(int temporada);
+    void setTitulo(std::string titulo);
 };
+bool loadSerieFromCSV(std::string fileName, Episodio* partArray, unsigned int arraySize);

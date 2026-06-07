@@ -8,7 +8,11 @@ protected:
     int duracion; 
     float calificacion;
 public:
-    Video(std::string id,std::string nombre, std::string genero, int duracion);
+    Video();
+    void setId(std::string id);
+    void setNombre(std::string nombre);
+    void setGenero(std::string genero);
+    void setDuracion(int duracion);
     void setCalificacion(float calificacion);
     virtual void mostrarDatos() = 0;
     float getCalificacion();
@@ -16,3 +20,4 @@ public:
     virtual ~Video() {
     }
 };
+int countDataLinesInCSV(std::string fileName);

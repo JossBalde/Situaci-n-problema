@@ -5,17 +5,47 @@
 #include <fstream>
 using namespace std;
 #define SERIES_FILE "series.csv"
+#define PELICULAS_FILE "movies.csv"
 
 
 int main(){
-    Video **catalogo = nullptr;
-    catalogoSize = 0;
-    dataSize = countDataLinesInCSV(PCPARTS_FILE);
-    if (dataSizze == -1){}
+    Pelicula *peliculas = nullptr;
+    Episodio *series = nullptr;
+    int seriesSize = 0;
+    int peliculasSize = 0;
 
+    seriesSize = countDataLinesInCSV(SERIES_FILE);
+ 	if(seriesSize == -1) {
+		cerr << "No se pudo cargar el data set desde " << SERIES_FILE << "\n";
+		return 0;
+	}
+	series = new(nothrow) Episodio[seriesSize];
+	if(series == nullptr) {
+		cerr << "No hubo memoria para el arreglo creado con datos de " << SERIES_FILE << "\n";
+		return 0;
+	}
+    if(!loadSerieFromCSV(SERIES_FILE, series, seriesSize)) {
+		cerr << "Error al cargar el data set de " << SERIES_FILE << "\n";
+		delete [] series;
+		return 0;
+	}
+    peliculasSize = countDataLinesInCSV(PELICULAS_FILE);
+ 	if(peliculasSize == -1) {
+		cerr << "No se pudo cargar el data set desde " << PELICULAS_FILE << "\n";
+		return 0;
+	}
+	peliculas = new(nothrow) Pelicula[peliculasSize];
+	if(peliculas == nullptr) {
+		cerr << "No hubo memoria para el arreglo creado con datos de " << PELICULAS_FILE << "\n";
+		return 0;
+	}
+    if(!loadPeliculaFromCSV(PELICULAS_FILE, peliculas, peliculasSize)) {
+		cerr << "Error al cargar el data set de " << PELICULAS_FILE << "\n";
+		delete [] peliculas;
+		return 0;
+	}
 
-
-    int opcion;
+/*  int opcion;
     do{
     cout << "Menu:\n"
          << "1. Cargar archivo de datos\n"
@@ -29,5 +59,6 @@ int main(){
         cin >> opcion;
     
     }while()
+*/
     return 0;
 }
